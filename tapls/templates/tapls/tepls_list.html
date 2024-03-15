@@ -1,0 +1,20 @@
+{% extends 'root.html' %}
+{% block content %}
+<h1 class="text-center mt-3">Столы</h1>
+<div class="row row-cols-3 row-cols-md-6 g-6">
+{% for tapls in tapls_list %}
+<div class="d-flex m-5">
+<div class="card" style="width: 18rem;">
+  <img src="{{ tapls.image.url }}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Стол "{{ tapls.title }}"</h5>
+    <p class="card-text">Вместимость: {{ tapls.сapacity }}</p>
+      <p class="card-text">Стоимость: от {{ tapls.price }}руб/чел.</p>
+    <a href="{% url 'tapls:details' tapls.id %}" class="btn btn" style="background-color: #FFE4B5;">Подробнее</a>
+  </div>
+</div>
+</div>
+
+{% endfor %}
+</div>
+{% endblock %}
